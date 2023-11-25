@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>on demo</title>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+<body>
+ 
+<button class="button button1">Click here babygirl</button>
+<span id="spanId"></span>
+
+
+<script>
+function httpGet(theUrl) {
+    let xmlHttpReq = new XMLHttpRequest();
+    xmlHttpReq.open("GET", theUrl, false);
+    xmlHttpReq.send(null);
+    return xmlHttpReq.responseText;
+}
+
+$( "button" ).on( "click", function() {
+    console.log("I LOVE YOUUUU")
+    val = httpGet("https://jsonplaceholder.typicode.com/posts/1")
+    console.log(val)
+    document.getElementById("spanId").innerText = JSON.parse(val).title;
+
+} );
+</script>
+ 
+</body>
+</html>
